@@ -3,8 +3,9 @@
 import hmc_pcm as hmc
 import nchart
 import time
-
 import sys
+import os
+
 if len(sys.argv) != 4:   # four including the program name entry [0]
     print("Usage: %s HMC-hostname HMC-username HMC-password" %(sys.argv[0]))
     sys.exit(1)
@@ -17,6 +18,10 @@ print("HMC hostanme=%s User=%s Password=%s"  %( hostname, user, password))
 output_csv=True
 output_html=False
 debug=True
+debugDir = "./debug"
+
+if not os.path.exists(debugDir):
+	os.makedirs(debugDir)
 
 print("-> Logging on to %s as user %s" % (hostname,user))
 hmc = hmc.HMC(hostname, user, password)
