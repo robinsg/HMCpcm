@@ -1040,4 +1040,14 @@ class HMC(object):
                 headerline = 'time,watts,mb0,mb1,mb2,mb3,cpu0,cpu1,cpu2,cpu3,cpu4,cpu5,cpu6,cpu7,inlet'
         return headerline,result
 
+
+    def tar_csv(self):
+        '''Tar and remove the csv files
+           Arguments: None
+           Returns: none '''
+        os.system('tar -rvf pcmstats.tar *.csv')
+        os.system('rm *.csv')
+        return None
+
+
 # End of File

@@ -165,6 +165,7 @@ for count, server in enumerate(perflist,start=1):  # just loop the servers with 
                 f.close()
                 print("Saved comma separated values to %s" % (filename))
 
-
+print("-> tar and cleanup the csv files")
+hmc.tar_csv()
 print("Logging off the HMC")
 hmc.logoff()
