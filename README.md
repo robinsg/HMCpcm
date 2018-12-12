@@ -3,8 +3,8 @@ Python access to HMC REST APIs to process PCM preferences and statistics
 
 
 Files:
-hmc_pcm.py         - Contains function used to access the REST APIs
-nchart.py          - Used to create charts for certain stats
+hmc_pcm.py         - Contains function used to access the REST APIs<BR>
+nchart.py          - Used to create charts for certain stats<BR>
 nextract_server.py - Extracts PCM stats for servers and LPARs
 set_ltmprefs.py    - Set Long Term and Aggregate stats on/off 
 
