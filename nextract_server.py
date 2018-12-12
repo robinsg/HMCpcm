@@ -85,13 +85,13 @@ for count, server in enumerate(perflist,start=1):  # just loop the servers with 
                 break
 
             if output_html:                                              # Create .html file that graphs the stats
-                filename = "Server-" + info['name'] + ".html"          # Using googlechart
+                filename = "Server-" + info['name'] + str(starttime) + ".html"          # Using googlechart
                 n = nchart.nchart_open()
                 n.nchart_server(filename, info, stats)
                 print("Saved webpage to %s" % (filename))
 
             if output_csv:                                               # Create comma separated vaules file
-                filename = "Server-" + info['name'] + ".csv"
+                filename = "Server-" + info['name'] + str(starttime) + ".csv"
                 f = open(filename,"a")
                 f.write("%s\n" %(header))
                 for line in stats:
@@ -151,13 +151,13 @@ for count, server in enumerate(perflist,start=1):  # just loop the servers with 
                         break
 
             if output_html:                                              # Create .html file that graphs the stats
-                filename = "LPAR-" + info['lparname'] + ".html"          # Using googlechart
+                filename = "LPAR-" + info['lparname'] + str(starttime) + ".html"          # Using googlechart
                 n = nchart.nchart_open()
                 n.nchart_lpar(filename, info, stats)
                 print("Created webpage %s" % (filename))
 
             if output_csv:                                               # Create comma separated vaules file
-                filename = "LPAR-" + info['lparname'] + ".csv"
+                filename = "LPAR-" + info['lparname'] + str(starttime) + ".csv"
                 f = open(filename,"a")
                 f.write("%s\n" %(header))
                 for line in stats:
