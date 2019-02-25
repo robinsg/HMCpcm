@@ -8,6 +8,9 @@ nchart.py          - Used to create charts for certain stats<BR>
 nextract_server.py - Extracts PCM stats for servers and LPARs<BR>
 set_ltmprefs.py    - Set Long Term and Aggregate stats on/off<BR>
 <BR>
+Install additional packages:
+  $ pip3 install -r requirements.txt
+<BR>
 <BR>
 Use:<BR>
 set_ltmstats.py is used to set the stats on(true) or off(false) for all LPARs on all servers managed by an HMC. It is also possible to<BR>
