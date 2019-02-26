@@ -8,6 +8,7 @@ import sys
 import os
 import time
 import atexit
+import platform
 
 class HMC(object):
     def __init__(self,hmc, user, pw):
@@ -1046,9 +1047,10 @@ class HMC(object):
            Arguments: None
            Returns: none '''
         os.system('tar -rvf pcmstats.tar *.csv')
-        ### Replace use of rm command as not valid in Windows
-        ###os.system('rm *.csv')
-        os.remove("*.csv")
+        if platform.system() == 'Linux':
+           os.system('rm *.csv')
+        if platform.system() == 'Windows':
+            os.system('del *.csv')
         return None
 
 
