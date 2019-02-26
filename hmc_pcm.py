@@ -1046,7 +1046,9 @@ class HMC(object):
            Arguments: None
            Returns: none '''
         os.system('tar -rvf pcmstats.tar *.csv')
-        os.system('rm *.csv')
+        ### Replace use of rm command as not valid in Windows
+        ###os.system('rm *.csv')
+        os.remove("*.csv")
         return None
 
 
