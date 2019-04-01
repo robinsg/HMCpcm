@@ -19,7 +19,7 @@ set_ltmstats.py is used to set the stats on(true) or off(false) for all LPARs on
 specify a specific server to turn on/off the PCM statistics. See usage in the comments<BR>
 <BR>
 <BR>
-nextract_server.py is used to gather the PCM stats from those server which have Long Term and Aggregate stats set to true. By defualt<BR>
+nextract_server.py is used to gather the PCM stats from those server which have Long Term and Aggregate stats set to true. By default
 csv files are created per server and per LPAR.<BR>
 <BR>
 The stats must be collected at no more that 30 minute intervals as the HMC purges stats more that 30 minutes old.<BR>
