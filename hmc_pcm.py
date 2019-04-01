@@ -662,6 +662,7 @@ class HMC(object):
         statslist = []
         headerline = 'sampleTime, cpu_total, cpu_used, cpu_avail, cpu_conf, mem_avail, mem_total, mem_conf, mem_inVM, vios_mem_conf, vios_mem_used, vios_net_rbytes, vios_net_wbytes, vios_net_reads, vios_net_writes, vios_proc_vp, vios_proc_entitled, vios_proc_used, vios_fc_rbytes, vios_fc_wbytes, vios_fc_reads, vios_fc_writes'
 
+
         for sample in jdata['systemUtil']['utilSamples']:
             status = sample['sampleInfo']['status']
             sampletime = sample['sampleInfo']['timeStamp']
@@ -676,6 +677,11 @@ class HMC(object):
                 if errors > 2:
                     break
             else :
+                ''' If the server does not have any VIOS stats then stop processing this server '''
+                if 'viosUtil' not in sample :
+                    print("No VIOS on this server")
+                    return("", 0, 1, 0)
+
                 count += 1
                 cpu_avail  = sample['serverUtil']['processor']['availableProcUnits'][0]
                 cpu_conf   = sample['serverUtil']['processor']['configurableProcUnits'][0]
