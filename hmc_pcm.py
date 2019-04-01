@@ -9,6 +9,7 @@ import os
 import time
 import atexit
 import platform
+import zipfile
 
 class HMC(object):
     def __init__(self,hmc, user, pw):
@@ -1046,7 +1047,14 @@ class HMC(object):
         '''Tar and remove the csv files
            Arguments: None
            Returns: none '''
-        os.system('tar -rvf pcmstats.tar *.csv')
+        '''os.system('tar -rvf pcmstats.tar *.csv')'''
+        zf = zipfile.ZipFile('pcmstats.zip', 'a')
+        for folder, subfolders, files in os.walk('.'):
+
+           for file in files:
+               if file.endswith('.csv'):
+                   zf.write(os.path.join(folder, file), file, compress_type = zipfile.ZIP_DEFLATED)
+        zf.close()
         if platform.system() == 'Linux':
            os.system('rm *.csv')
         if platform.system() == 'Windows':
