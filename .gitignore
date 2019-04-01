@@ -2,5 +2,5 @@ debug
 __pycache__
 *.csv	
 *.html
-*.tar
 *.csv
+*.tar
