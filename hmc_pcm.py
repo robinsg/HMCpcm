@@ -1054,6 +1054,8 @@ class HMC(object):
            Arguments: None
            Returns: none '''
         '''os.system('tar -rvf pcmstats.tar *.csv')'''
+
+        ''' Create/append csv file to zip file '''
         timestr = time.strftime("%Y%m%d")
         zf = zipfile.ZipFile(self.HMCname+'-pcmstats-'+timestr+'.zip', 'a')
         for folder, subfolders, files in os.walk('.'):
@@ -1062,10 +1064,21 @@ class HMC(object):
                if file.endswith('.csv'):
                    zf.write(os.path.join(folder, file), file, compress_type = zipfile.ZIP_DEFLATED)
         zf.close()
+
+        '''clean up csv files'''
         if platform.system() == 'Linux':
            os.system('rm *.csv')
         if platform.system() == 'Windows':
             os.system('del *.csv')
+
+        ''' Clean up debug folder if debug is off '''
+        if not self.debug:
+           if platform.system() == 'Linux':
+             os.system('rm debug/*.JSON')
+             os.system('rm debug/*.xml')
+           if platform.system() == 'Windows':
+             os.system('del debug\*.JSON')
+             os.system('del debug\*.xml')
         return None
 
 
