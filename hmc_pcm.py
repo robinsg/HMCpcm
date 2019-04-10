@@ -9,7 +9,6 @@ import os
 import time
 import atexit
 import platform
-import zipfile
 
 class HMC(object):
     def __init__(self,hmc, user, pw):
@@ -662,7 +661,6 @@ class HMC(object):
         statslist = []
         headerline = 'sampleTime, cpu_total, cpu_used, cpu_avail, cpu_conf, mem_avail, mem_total, mem_conf, mem_inVM, vios_mem_conf, vios_mem_used, vios_net_rbytes, vios_net_wbytes, vios_net_reads, vios_net_writes, vios_proc_vp, vios_proc_entitled, vios_proc_used, vios_fc_rbytes, vios_fc_wbytes, vios_fc_reads, vios_fc_writes'
 
-
         for sample in jdata['systemUtil']['utilSamples']:
             status = sample['sampleInfo']['status']
             sampletime = sample['sampleInfo']['timeStamp']
@@ -677,11 +675,6 @@ class HMC(object):
                 if errors > 2:
                     break
             else :
-                ''' If the server does not have any VIOS stats then stop processing this server '''
-                if 'viosUtil' not in sample :
-                    print("No VIOS on this server")
-                    return("", 0, 1, 0)
-
                 count += 1
                 cpu_avail  = sample['serverUtil']['processor']['availableProcUnits'][0]
                 cpu_conf   = sample['serverUtil']['processor']['configurableProcUnits'][0]
@@ -1053,9 +1046,10 @@ class HMC(object):
         '''Tar and remove the csv files
            Arguments: None
            Returns: none '''
+<<<<<<< HEAD
+        os.system('tar -rvf pcmstats.tar *.csv')
+=======
         '''os.system('tar -rvf pcmstats.tar *.csv')'''
-
-        ''' Create/append csv file to zip file '''
         timestr = time.strftime("%Y%m%d")
         zf = zipfile.ZipFile(self.HMCname+'-pcmstats-'+timestr+'.zip', 'a')
         for folder, subfolders, files in os.walk('.'):
@@ -1064,21 +1058,11 @@ class HMC(object):
                if file.endswith('.csv'):
                    zf.write(os.path.join(folder, file), file, compress_type = zipfile.ZIP_DEFLATED)
         zf.close()
-
-        '''clean up csv files'''
+>>>>>>> parent of bc0c5a3... Clean up debug folder
         if platform.system() == 'Linux':
            os.system('rm *.csv')
         if platform.system() == 'Windows':
             os.system('del *.csv')
-
-        ''' Clean up debug folder if debug is off '''
-        if not self.debug:
-           if platform.system() == 'Linux':
-             os.system('rm debug/*.JSON')
-             os.system('rm debug/*.xml')
-           if platform.system() == 'Windows':
-             os.system('del debug\*.JSON')
-             os.system('del debug\*.xml')
         return None
 
 

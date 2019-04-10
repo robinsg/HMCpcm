@@ -17,7 +17,7 @@ print("HMC hostanme=%s User=%s Password=%s"  %( hostname, user, password))
 
 output_csv=True
 output_html=False
-debug=False
+debug=True
 debugDir = "./debug"
 
 if not os.path.exists(debugDir):
@@ -82,7 +82,6 @@ for count, server in enumerate(perflist,start=1):  # just loop the servers with 
             print("----> Records=%d Errors=%d" % (lines,errors))
             if errors > 0:
                 print("Stopping processing of this server %s due to errors"%(info['name']))
-                print("Verify the server is running VIOS")
                 break
 
             if output_html:                                              # Create .html file that graphs the stats
