@@ -1059,6 +1059,9 @@ class HMC(object):
                    zf.write(os.path.join(folder, file), file, compress_type = zipfile.ZIP_DEFLATED)
         zf.close()
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of bc0c5a3... Clean up debug folder
+=======
 >>>>>>> parent of bc0c5a3... Clean up debug folder
 =======
 >>>>>>> parent of bc0c5a3... Clean up debug folder
