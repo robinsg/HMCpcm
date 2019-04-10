@@ -676,6 +676,11 @@ class HMC(object):
                 if errors > 2:
                     break
             else :
+			    ''' If the server does not have any VIOS stats then stop rocessing this server '''
+				if 'viosutil' not in sample :
+				   print("No VIOS on this server. This server will be ignored.")
+				   return("", 0, 1 ,0)
+				   
                 count += 1
                 cpu_avail  = sample['serverUtil']['processor']['availableProcUnits'][0]
                 cpu_conf   = sample['serverUtil']['processor']['configurableProcUnits'][0]
