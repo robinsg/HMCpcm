@@ -1054,6 +1054,7 @@ class HMC(object):
            Returns: none '''
 
         '''os.system('tar -rvf pcmstats.tar *.csv')'''
+		timestr =  time.strftime("%Y%m%d")
         zf = zipfile.ZipFile(self.HMCname+'-pcmstats-'+timestr+'.zip', 'a')
         for folder, subfolders, files in os.walk('.'):
 
