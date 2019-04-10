@@ -1061,6 +1061,7 @@ class HMC(object):
         zf.close()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of bc0c5a3... Clean up debug folder
 =======
 >>>>>>> parent of bc0c5a3... Clean up debug folder
@@ -1069,6 +1070,8 @@ class HMC(object):
 =======
         os.system('tar -rvf pcmstats.tar *.csv')
 >>>>>>> parent of 1d4dbc0... Update compression mechanism
+=======
+>>>>>>> parent of bc0c5a3... Clean up debug folder
         if platform.system() == 'Linux':
            os.system('rm *.csv')
         if platform.system() == 'Windows':
