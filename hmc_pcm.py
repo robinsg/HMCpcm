@@ -1047,6 +1047,7 @@ class HMC(object):
            Arguments: None
            Returns: none '''
 <<<<<<< HEAD
+<<<<<<< HEAD
         os.system('tar -rvf pcmstats.tar *.csv')
 =======
         '''os.system('tar -rvf pcmstats.tar *.csv')'''
@@ -1065,6 +1066,9 @@ class HMC(object):
 >>>>>>> parent of bc0c5a3... Clean up debug folder
 =======
 >>>>>>> parent of bc0c5a3... Clean up debug folder
+=======
+        os.system('tar -rvf pcmstats.tar *.csv')
+>>>>>>> parent of 1d4dbc0... Update compression mechanism
         if platform.system() == 'Linux':
            os.system('rm *.csv')
         if platform.system() == 'Windows':
