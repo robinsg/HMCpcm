@@ -676,10 +676,10 @@ class HMC(object):
                 if errors > 2:
                     break
             else :
-			    ''' If the server does not have any VIOS stats then stop rocessing this server '''
-				if 'viosutil' not in sample :
-				   print("No VIOS on this server. This server will be ignored.")
-				   return("", 0, 1 ,0)
+                ''' If the server does not have any VIOS stats then stop rocessing this server '''
+                if 'viosUtil' not in sample :
+                   print("No VIOS on this server. This server will be ignored.")
+                   return("", 0, 1 ,0)
 				   
                 count += 1
                 cpu_avail  = sample['serverUtil']['processor']['availableProcUnits'][0]
@@ -1054,7 +1054,7 @@ class HMC(object):
            Returns: none '''
 
         '''os.system('tar -rvf pcmstats.tar *.csv')'''
-		timestr =  time.strftime("%Y%m%d")
+        timestr =  time.strftime("%Y%m%d")
         zf = zipfile.ZipFile(self.HMCname+'-pcmstats-'+timestr+'.zip', 'a')
         for folder, subfolders, files in os.walk('.'):
 

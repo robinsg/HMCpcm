@@ -82,7 +82,7 @@ for count, server in enumerate(perflist,start=1):  # just loop the servers with 
             print("----> Records=%d Errors=%d" % (lines,errors))
             if errors > 0:
                 print("Stopping processing of this server %s due to errors"%(info['name']))
-				print("Thisn may be due to teh server NOT having any VIOS LPARs.")
+                print("This may be due to teh server NOT having any VIOS LPARs.")
                 break
 
             if output_html:                                              # Create .html file that graphs the stats
