@@ -1058,6 +1058,9 @@ class HMC(object):
                if file.endswith('.csv'):
                    zf.write(os.path.join(folder, file), file, compress_type = zipfile.ZIP_DEFLATED)
         zf.close()
+<<<<<<< HEAD
+>>>>>>> parent of bc0c5a3... Clean up debug folder
+=======
 >>>>>>> parent of bc0c5a3... Clean up debug folder
         if platform.system() == 'Linux':
            os.system('rm *.csv')
