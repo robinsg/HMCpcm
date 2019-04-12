@@ -1067,6 +1067,15 @@ class HMC(object):
            os.system('rm *.csv')
         if platform.system() == 'Windows':
             os.system('del *.csv')
+
+        ''' Clean up debug folder if debug is off '''
+        if not self.debug:
+           if platform.system() == 'Linux':
+             os.system('rm debug/*.JSON')
+             os.system('rm debug/*.xml')
+           if platform.system() == 'Windows':
+             os.system('del debug\*.JSON')
+             os.system('del debug\*.xml')
         return None
 
 
